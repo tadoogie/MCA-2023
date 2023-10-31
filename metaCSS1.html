@@ -3,36 +3,26 @@
 <head>
   <meta charset="utf-8">
   <title>My Piece</title>
-  <!--<link rel="stylesheet" href="css/CETEIcean.css" media="all" />-->
+  <<link rel="stylesheet" href="css/CETEIcean.css" media="all" />
   <link rel="stylesheet" href="css/style.css" media="all" />
   <script src="js/CETEI.js"></script>
 </head>
 <body>
   <div id="MEImeta"></div>
-  <div id="app">Verovio is loading...</div>
+  <div id="app" class="panel" style="border: 1px solid light gray; min-height: 800px;">Verovio is loading...</div>
   <script type="module">
         import 'https://www.verovio.org/javascript/app/verovio-app.js';
         
-        const options = {
-            defaultView: 'responsive', // default is 'responsive', alternative is 'document'
-            defaultZoom: 3, // 0-7, default is 4
-            enableResponsive: true, // default is true
-            enableDocument: true // default is true
-        }
-        
-        // A MusicXML file
-        var file = 'data/example.mei';
-        // A MEI file
-        //var file = 'https://www.verovio.org/editor/brahms.mei';
-        
-        const app = new Verovio.App(document.getElementById("app"), options);
-        fetch(file)
-            .then(function(response) {
-                return response.text();
-            })
-            .then(function(text) {
-                app.loadData(text);
-            });
+         const app = new Verovio.App(document.getElementById("app"), {});
+
+    // Load a file (MEI or MusicXML)
+    fetch("data/example.mei")
+        .then(function(response) {
+            return response.text();
+        })
+        .then(function(text) {
+            app.loadData(text);
+        });
     </script>
   <script>
     // Get, parse, and show TEI data
