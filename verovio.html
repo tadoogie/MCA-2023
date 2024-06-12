@@ -9,18 +9,21 @@
         height: 100%;
         margin: 0;
     }
-    .header {
-        padding: 20px;
-        height:80px;
+    .box {
+        display: flex;
+        flex-flow: column;
+        height: 100%;
     }
-    #app {
-        height: auto;
-        width: 100%;
-
+    .box .header {
+       flex: 0 1 auto;
+    }
+    .box #app {
+        flex: 1 1 auto;
     }
     </style>
 </head>
 <body>
+    <div class="box">
     <div class="header"><h1>Week 3</h1>
         <p>[Insert your response to task 2 here.]</p></div>
     <div id="app">Verovio is loading...</div>
@@ -48,5 +51,6 @@
                 app.loadData(text);
             });
     </script>
+    </div>
 </body>
 </html>
